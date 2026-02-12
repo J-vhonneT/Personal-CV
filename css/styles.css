@@ -1,156 +1,165 @@
-/* || Global Styles */
+/* || GLOBAL RESET */
 * {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-}
-body {
-font-family: 'Fixedsys', monospace;
-line-height: 1.6;
-background-color: #ffd1dc;
-padding: 20px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+/* || PINK COLOR VARIABLES */
+:root {
+  --pink-main: #ff69b4;
+  --pink-soft: #ffc0cb;
+  --pink-hover: #ff1493;
+  --pink-light: #fff0f6;
+}
+
+/* || BODY WITH PHOTO BACKGROUND */
+body {
+  font-family: 'Fixedsys', monospace;
+  line-height: 1.6;
+  background: url("../images/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  padding: 20px;
+}
+
+/* Soft pink overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 192, 203, 0.3);
+  z-index: -1;
+}
+
+/* || CONTAINER */
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-/* || Card Styling */
+/* || CARD DESIGN */
 .card {
-  background: #ffffff;
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  width: 1000px;
-  max-width: 90%;
-}
-
-/* || Typography */
-h1, h2 {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  margin: 25px auto;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: 0 15px 35px rgba(255, 105, 180, 0.3);
   text-align: center;
-  margin-bottom: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.8s ease;
 }
 
-h2 {
-  margin-bottom: 10px;
-  margin-top: 20px;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(255, 20, 147, 0.4);
 }
 
-p {
-  margin-bottom: 10px;
+/* || TYPOGRAPHY */
+h1, h2 {
+  margin-bottom: 15px;
 }
 
-ul {
-  margin-left: 20px;
-  margin-bottom: 10px;
+.subtitle {
+  margin-bottom: 15px;
 }
 
+/* || PROFILE IMAGE */
+.card img {
+  border-radius: 50%;
+  border: 5px solid var(--pink-soft);
+  box-shadow: 0 0 20px var(--pink-main);
+  margin-bottom: 15px;
+}
+
+/* || LINKS */
 a {
   text-decoration: none;
-  color: #0077cc;
+  color: var(--pink-main);
+  transition: 0.3s;
 }
 
 a:hover {
-  color: #005fa3;
+  color: var(--pink-hover);
+  text-shadow: 0 0 8px var(--pink-soft);
 }
 
+/* || LISTS */
+ul {
+  list-style-position: inside;
+  padding-left: 0;
+  margin-bottom: 10px;
+}
+
+/* || TABLE */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
 }
 
-th, td {
-  border: 1px solid #ccc;
-  padding: 8px;
-}
-
 th {
-  background-color: #0077cc;
+  background-color: var(--pink-main);
   color: white;
 }
 
+td, th {
+  border: 1px solid var(--pink-soft);
+  padding: 8px;
+}
+
+/* || FORM */
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
 }
 
 input, textarea {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  width: 250px;
+  padding: 10px;
+  border-radius: 15px;
+  border: 2px solid var(--pink-soft);
+  font-family: 'Fixedsys', monospace;
+  transition: 0.3s;
 }
 
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--pink-main);
+  box-shadow: 0 0 10px var(--pink-soft);
+}
+
+/* || BUTTON */
 button {
-  padding: 10px;
-  background-color: #0077cc;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: var(--pink-main);
   color: white;
   border: none;
   cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Fixedsys', monospace;
 }
 
 button:hover {
-  background-color: #005fa3;
+  background: var(--pink-hover);
+  box-shadow: 0 0 15px var(--pink-soft);
 }
 
-.card img {
-  display: block;
-  margin: 0 auto;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;   
-  gap: 10px;             
-}
-
-form input,
-form textarea {
-  width: 200px;
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-form button {
-  padding: 8px 16px;
-  border-radius: 8px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #45a049;
-}
-
-.subtitle {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
+/* || FOOTER */
 .footer {
-  text-align: center;   
-  margin-top: 20px;     
-  font-size: 0.9rem;    
-  color: #555;          
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: white;
 }
 
-.card {
-  text-align: center; 
-}
-
-.card ul {
-  list-style-position: inside; 
-  padding-left: 0px;             
-}
-
-.card ul ul {
-  padding-left: 0px;             
-  list-style-position: inside;
+/* || FADE ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
