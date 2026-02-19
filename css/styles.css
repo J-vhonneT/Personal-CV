@@ -163,3 +163,26 @@ button:hover {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* || DARK MODE */
+.dark-mode {
+  background: 
+      linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+      url("../background/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.hidden {
+  display:none;
+}
+
+#toggleSkills {
+  display: block;
+  margin: 20px auto;
+}

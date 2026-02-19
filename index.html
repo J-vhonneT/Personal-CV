@@ -7,11 +7,13 @@
 </head>
 
 <body>
+    <button id="themeToggle">Toggle Dark Mode</button>
 
 <header>
     <section class="card">
         <h1>J-vhonne L. Tabaniag</h1>
         <p class="subtitle">IT Student | Web Systems and Technologies</p>
+
     </section>
 </header>
 
@@ -32,7 +34,7 @@
         <a href="https://github.com/J-vhonneT" target="_blank">J-vhonneT</a>
     </p>
 
-    <h2>About Me</h2>
+    <h2><br>About Me</h2>
     <p>
         Hi, my name is J-vhonne Tabaniag. I’m 20 years old and currently completing my
         Bachelor of Science in Information Technology (BSIT). I enjoy learning about
@@ -40,8 +42,9 @@
         are both fun and useful while constantly improving my skills.
     </p>
 </section>
+<button id="toggleSkills">Show/Hide Skills</button>
 
-<section class="card">
+<section class="card" id="skillsSection">
     <h2>Skills</h2>
     <ul>
         <li>Web Development
@@ -104,10 +107,10 @@
 <section class="card">
     <h2>Contact Me</h2>
     <form>
-        <input type="text" placeholder="Name">
-        <input type="email" placeholder="Email">
+        <input type="text" id="name" placeholder="Name">
+        <input type="email" id="email" placeholder="Email">
         <textarea placeholder="Message"></textarea>
-        <button type="submit">Send</button>
+        <button type="submit" id="submitBtn">Send</button>
     </form>
 </section>
 
@@ -116,6 +119,8 @@
 <footer>
     <p class="footer">&copy; 2026 J-vhonne L. Tabaniag. All rights reserved.</p>
 </footer>
+
+<script src="js/script.js"></script>
 
 </body>
 </html>
