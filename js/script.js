@@ -17,9 +17,21 @@ submitBtn.addEventListener("click", function(event) {
 
 // Dark mode toggle
 const themeToggle = document.getElementById("themeToggle");
+const toggleIcon = document.getElementById("toggleIcon");
+const toggleText = document.getElementById("toggleText");
+
 themeToggle.addEventListener("click", function() {
     document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        toggleIcon.textContent = "🌙"; // moon
+        toggleText.textContent = " Light Mode"; // click to go light
+    } else {
+        toggleIcon.textContent = "☀️"; // sun
+        toggleText.textContent = " Dark Mode"; // click to go dark
+    }
 });
+
 
 // Skills toggle
 const toggleSkills = document.getElementById("toggleSkills");
