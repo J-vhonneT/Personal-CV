@@ -1,11 +1,11 @@
-/* || GLOBAL RESET */
+/* GLOBAL RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* || PINK COLOR VARIABLES */
+/* PINK COLOR VARIABLES */
 :root {
   --pink-main: #ff69b4;
   --pink-soft: #ffc0cb;
@@ -13,13 +13,14 @@
   --pink-light: #fff0f6;
 }
 
-/* || BODY WITH PHOTO BACKGROUND */
+/* BODY + BACKGROUND */
 body {
   font-family: 'Fixedsys', monospace;
   line-height: 1.6;
-  background: url("../images/bg.jpg") no-repeat center center fixed;
+  background: url("/images/bg.jpg") no-repeat center center fixed;
   background-size: cover;
   padding: 20px;
+  transition: background 0.3s ease;
 }
 
 /* Soft pink overlay */
@@ -27,26 +28,38 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(255, 192, 203, 0.3);
+  background: rgba(255,192,203,0.3);
   z-index: -1;
+  transition: background 0.3s ease;
 }
 
-/* || CONTAINER */
+/* DARK MODE */
+body.dark-mode::before {
+  background: rgba(0,0,0,0.7);
+}
+
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+/* CONTAINER */
 .container {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 20px;
 }
 
-/* || CARD DESIGN */
+/* CARD */
 .card {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255,255,255,0.85);
   backdrop-filter: blur(10px);
   padding: 25px;
   margin: 25px auto;
   border-radius: 20px;
   width: 100%;
   max-width: 1000px;
-  box-shadow: 0 15px 35px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 15px 35px rgba(255,105,180,0.3);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeIn 0.8s ease;
@@ -54,10 +67,10 @@ body::before {
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(255, 20, 147, 0.4);
+  box-shadow: 0 20px 40px rgba(255,20,147,0.4);
 }
 
-/* || TYPOGRAPHY */
+/* TYPOGRAPHY */
 h1, h2 {
   margin-bottom: 15px;
 }
@@ -66,7 +79,7 @@ h1, h2 {
   margin-bottom: 15px;
 }
 
-/* || PROFILE IMAGE */
+/* PROFILE IMAGE */
 .card img {
   border-radius: 50%;
   border: 5px solid var(--pink-soft);
@@ -74,7 +87,7 @@ h1, h2 {
   margin-bottom: 15px;
 }
 
-/* || LINKS */
+/* LINKS */
 a {
   text-decoration: none;
   color: var(--pink-main);
@@ -86,14 +99,14 @@ a:hover {
   text-shadow: 0 0 8px var(--pink-soft);
 }
 
-/* || LISTS */
+/* LISTS */
 ul {
   list-style-position: inside;
   padding-left: 0;
   margin-bottom: 10px;
 }
 
-/* || TABLE */
+/* TABLE */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -110,7 +123,7 @@ td, th {
   padding: 8px;
 }
 
-/* || FORM */
+/* FORM */
 form {
   display: flex;
   flex-direction: column;
@@ -133,7 +146,7 @@ input:focus, textarea:focus {
   box-shadow: 0 0 10px var(--pink-soft);
 }
 
-/* || BUTTON */
+/* BUTTON */
 button {
   padding: 10px 20px;
   border-radius: 20px;
@@ -150,7 +163,7 @@ button:hover {
   box-shadow: 0 0 15px var(--pink-soft);
 }
 
-/* || FOOTER */
+/* FOOTER */
 .footer {
   text-align: center;
   margin-top: 30px;
@@ -158,30 +171,13 @@ button:hover {
   color: white;
 }
 
-/* || FADE ANIMATION */
+/* FADE ANIMATION */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* || DARK MODE */
-.dark-mode {
-  background: 
-      linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-      url("../background/bg.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: white;
-}
-
-.dark-mode .card {
-  background-color: #1e1e1e;
-  color: white;
-}
-
-.hidden {
-  display:none;
-}
-
+/* CENTER SKILLS BUTTON */
 #toggleSkills {
   display: block;
   margin: 20px auto;
