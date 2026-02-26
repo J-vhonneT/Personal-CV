@@ -1,24 +1,38 @@
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-
-    environment: github-pages  # 👈 must match the environment you created
+    defaults:
+      run:
+        working-directory: Personal-CV   # 👈 change if folder name is different
 
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: personal-cv-react/package-lock.json
+
       - run: npm install
       - run: npm run build
+
       - uses: actions/configure-pages@v4
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: personal-cv-react/dist
+
       - uses: actions/deploy-pages@v4
