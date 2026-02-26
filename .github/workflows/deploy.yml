@@ -15,7 +15,11 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: github-pages   # 👈 required
+      name: github-pages
+
+    defaults:
+      run:
+        working-directory: personal-cv-react   # 👈 IMPORTANT
 
     steps:
       - name: Checkout
@@ -26,6 +30,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: personal-cv-react/package-lock.json
 
       - name: Install
         run: npm install
@@ -39,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: personal-cv-react/dist   # 👈 IMPORTANT
 
       - name: Deploy
         uses: actions/deploy-pages@v4
